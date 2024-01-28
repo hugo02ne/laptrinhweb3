@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tính diện tích hình vuông</title>
+</head>
+<body>
+    <h2>Tính diện tích hình vuông</h2>
+    <form method="post">
+        Nhập độ dài cạnh của hình vuông: <input type="text" name="sideLength"><br>
+        <input type="submit" name="submit" value="Tính diện tích">
+    </form>
+
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $sideLength = $_POST['sideLength'];
+
+        // Kiểm tra xem có phải là số không
+        if (!is_numeric($sideLength)) {
+            echo "Vui lòng nhập một số.";
+        } else {
+            // Tính diện tích
+            $area = $sideLength * $sideLength;
+            echo "Diện tích của hình vuông là: " . $area;
+        }
+    }
+    ?>
+</body>
+</html>
